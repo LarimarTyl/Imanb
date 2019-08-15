@@ -1,0 +1,184 @@
+/* 清除样式 */
+ul,ol{
+    list-style: none;
+}
+a:hover, a:focus {
+    color: #23527c;
+    text-decoration: none;
+}
+/* a标签下划线 */
+
+/* 注册登录按钮 */
+.btn-lg, .btn-group-lg > .btn {
+    padding: 10px 16px;
+    margin-top: -8px;
+    margin-left: 20px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+/* 注册登录按钮 */
+
+
+/* 模态框注册登录位置 */
+.form-group .code{
+    position: relative;
+    top: -30px;
+    right: -190px;
+    width: 180px;
+}
+.form-group .code a{
+    line-height: 10px;
+    padding-left: 10px;
+}
+/* 模态框注册登录位置 */
+
+/* 搜索框内容 */
+.form-control {
+    border-radius: 34px;
+}
+/* 搜索框位置 */
+.form-group {
+    margin-right: 60px;
+}
+/* 搜索框内容 */
+
+/* 轮播图内容 */
+div#slider-item {
+    position: relative;
+    top: -78px;
+    width: 605px;
+    height: 68px;
+    /* 要有宽度才能用margin auto */
+    margin: 0 auto;
+    overflow: hidden;
+}
+div#slider-item .left{
+    background: url(../images/icon/left.png) no-repeat center center;
+    margin-right: 8px;
+}
+div#slider-item .f1{
+    float: left;
+}
+div#slider-item .controll-btn{
+    width: 29px;
+    height: 100%;
+    cursor: pointer;
+}
+div#slider-item .item{
+    width: 530px;
+    height: 68px;
+    background: url(../images/icon/shack.png) no-repeat center center;
+    position: relative;
+    overflow: hidden;
+}
+div#slider-item .right{
+    background: url(../images/icon/right.png) no-repeat center center;
+    margin-left: 8px;
+}
+div#slider-item .item .smallpics{
+    margin-top: 4px;
+    position: absolute;
+}
+div#slider-item .item .smallpic{
+    float: left;
+    width: 94px;
+    height: 60px;
+    margin: 0 6px;
+    position: relative;
+    cursor: pointer;
+}
+div#slider-item .item .smallpic img{
+    width: 90px;
+    height: 46px;
+    /* 处理图片变形的问题 */
+    object-fit: cover;
+    border: 1px solid #000;
+    position: absolute;
+    top: 6px;
+    left: 1px;
+    z-index: 2;
+}
+/* 轮播图内容 */
+/* 漫画项内容 */
+div.info{
+    margin-top:-5px; 
+    background: url(../images/pattern-bg.png);
+}
+/* 图片和简介区分 */
+div.projects-band-nohidden .description,div.projects-band .description{
+    display: block;
+    height:40px;
+}
+/* 标题居中 */
+div.projects-band-nohidden .description .title,div.projects-band .description .title{
+    padding:10px 0px; 
+    text-align: center;
+    margin: 0;
+}
+/* 指定变色 */
+.description:hover .title{
+    color: #B7E9AB;
+}
+.inline-border:hover +div a .title{
+    color: #B7E9AB;
+}
+.selected{
+    color: #B7E9AB;
+}
+/* 漫画项内容 */
+/* 排行榜内容 */
+div#rank{
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+div#rank .rank-items{
+    height: 90px;
+    margin: 5px 0;
+    border-bottom: #c9c8c8 dashed 1px;
+}
+div#rank .rank-items a{
+    position: unset;
+    padding: unset;
+}
+div#rank .rank1,div#rank .rank2,div#rank .rank3{
+    width: 31.555555555555557%;
+    margin-right: 22px;
+    float: left;
+    min-height: 1px;
+}
+div#rank .rank-items img{
+    width: 120px;
+    height: 82px;
+    object-fit: cover;
+    border: 1px solid #000;
+}
+/* 排行处理 */
+div#rank .rank-items .rank-info{
+    padding-top: 5px;
+}
+div#rank .rank-items .rank-info span{
+    margin-top:20px; 
+    display: block;
+    height: 25px;
+    width: 25px;
+    background-color: darkorange;
+    text-align: center;
+    line-height: 25px;
+    margin: 0 10px;
+    border-radius: 25px;
+    color: white;
+}
+/* 标题处理 */
+div#rank .rank-items div .title{
+    font-weight: bold;
+}
+/* 文本介绍处理 */
+div#rank .rank-items div p{
+    width: 227px;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+}
+/* 排行榜内容 */
