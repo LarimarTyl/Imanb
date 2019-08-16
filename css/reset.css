@@ -57,6 +57,7 @@
 
 }
 /*AlexonBoldRegular*/
+/* 彩色字体 */
 @font-face {
     font-family: 'AlexonBoldRegular';
     src: url('fonts/alexonbold-webfont.eot');
@@ -74,7 +75,7 @@
     src: url('fonts/alexonlight-webfont.eot@#iefix') format('embedded-opentype'),
          url('fonts/alexonlight-webfont.woff') format('woff'),
          url('fonts/alexonlight-webfont.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: bolder;
     font-style: normal;
 
 }

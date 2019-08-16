@@ -104,6 +104,7 @@ div#slider-item .item .smallpic img{
 div.info{
     margin-top:-5px; 
     background: url(../images/pattern-bg.png);
+    padding: 5px 0;
 }
 /* 图片和简介区分 */
 div.projects-band-nohidden .description,div.projects-band .description{
@@ -112,19 +113,23 @@ div.projects-band-nohidden .description,div.projects-band .description{
 }
 /* 标题居中 */
 div.projects-band-nohidden .description .title,div.projects-band .description .title{
-    padding:10px 0px; 
+    font-weight: bolder;
+    padding:5px 0px; 
     text-align: center;
     margin: 0;
 }
+div.info p{
+    margin:0 0 5px; 
+}
 /* 指定变色 */
 .description:hover .title{
-    color: #B7E9AB;
+    color: #6cb132;
 }
 .inline-border:hover +div a .title{
-    color: #B7E9AB;
+    color: #6cb132;
 }
 .selected{
-    color: #B7E9AB;
+    color: #6cb132;
 }
 /* 漫画项内容 */
 /* 排行榜内容 */
@@ -172,7 +177,9 @@ div#rank .rank-items .rank-info span{
 }
 /* 标题处理 */
 div#rank .rank-items div .title{
+    margin-top:0px; 
     font-weight: bold;
+    font:HelveticaLTStdRoman, sans-serif;
 }
 /* 文本介绍处理 */
 div#rank .rank-items div p{
@@ -181,4 +188,131 @@ div#rank .rank-items div p{
     text-overflow:ellipsis;
     overflow: hidden;
 }
+.mytext-title{
+    font-weight: bolder;
+    font:22px HelveticaLTStdRoman, sans-serif;
+}
+.mytext-p{
+    font-weight: bolder;
+    font-weight: 900;
+    font:14px JapanRegular, sans-serif;
+}
+.mytext-p2{
+    font-weight: bolder;
+    font:16px HelveticaLTStdBold, sans-serif;
+}
 /* 排行榜内容 */
+
+/* 👆上面是主页样式 */
+/* *************************************************************** */
+/* 华丽的分割线 */
+/* *************************************************************** */
+
+/* 自定义图标 */
+[my-icon="icon-gufeng"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/gufeng.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}
+[my-icon="icon-gaoxiao"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/gaoxiao.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}
+[my-icon="icon-guoman"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/guoman.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}
+[my-icon="icon-riman"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/riman.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}[my-icon="icon-xianxia"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/xianxia.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}
+[my-icon="icon-xiaoyuan"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/xiaoyuan.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}
+[my-icon="icon-maoxian"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/maoxian.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}
+[my-icon="icon-yanqing"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/yanqing.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}
+[my-icon="icon-dushis"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/dushi.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}
+[my-icon="icon-xuanhuan"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/xuanhuan.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}
+[my-icon="icon-nan"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/nan.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}
+[my-icon="icon-nv"]
+{
+	display:block;
+	width:34px;
+	height:35px;
+	background:url(../images/icons/portfolio/nv.png) no-repeat;
+	position:absolute;z-index:99;
+	top:50%;left:50%;margin-left:-17px;margin-top:-17.5px;
+}

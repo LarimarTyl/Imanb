@@ -45,7 +45,7 @@ div.project-complete-rate a.standart-button-style,  div.project-complete-rate a.
 .column-grid .onecol {width:126.6px}
 .column-grid .onehcol {width:210px}
 .column-grid .twocol {width:293.3px}
-.column-grid .threecol {width:620px}
+.column-grid .threecol {width:620px;padding: 0 10px;}
 .column-grid .fourcol {width:626.8px}
 .column-grid .fivecol {width:793.4px}
 .column-grid .sixcol {width:100%}
@@ -273,12 +273,19 @@ div.blog-entry {position:relative;margin:20px 0 0;padding-bottom:25px}
 	div.date-blog {margin-top:12px}
 	span.circle-area, div.circle-area
 	{
-	position:absolute;
-	-webkit-border-radius: 37px;
-	-moz-border-radius: 37px;
-	border-radius: 37px;
-	behavior: url(../js/PIE.htc);
-	margin-right:30px;background:#1577b8;display:block;width:74px;height:74px;text-align:center;color:#fff;font:24px/20px HelveticaLTStdRoman, sans-serif;
+		position: absolute;
+		-webkit-border-radius: 37px;
+		-moz-border-radius: 37px;
+		border-radius: 37px;
+		behavior: url(../js/PIE.htc);
+		margin-right: 30px;
+		background: #33b0b7;
+		display: block;
+		width: 74px;
+		height: 74px;
+		text-align: center;
+		color: #555;
+		font: 24px/20px HelveticaLTStdRoman, sans-serif;
 	}
 		a.comments {padding-left:20px;margin-right:10px;background:url(../images/comments_icon.png) no-repeat 0 50%}
 		a.likes {padding-left:20px;background:url(../images/like_icon.png) no-repeat 0 25%}
@@ -432,7 +439,7 @@ div:last-child.tweet {background:none}
 div.tweet a {font-weight:bold}
 p.tweet-hour {padding-left:20px;background:url(../images/icon-tweet.png) no-repeat 0 50%;font-size:15px}
 
-div.com-data {display:block;width:70px;margin:80px auto 0}
+div.com-data {display:block;width:70px;margin:80px auto 0;padding-top:15px; }
 div.com-data a {display:block}
 
 /* Blog-style*/
