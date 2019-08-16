@@ -7,7 +7,34 @@ a:hover, a:focus {
     text-decoration: none;
 }
 /* a标签下划线 */
-
+/*字体设置*/
+.title-large{
+    font-weight: bolder;
+    text-align: center;
+    font:25px HelveticaLTStdBold, sans-serif;
+}
+.mytext-title{
+    font-weight: bolder;
+    font:22px HelveticaLTStdRoman, sans-serif;
+}
+.mytext-p{
+    font-weight: bolder;
+    font-weight: 900;
+    font:14px JapanRegular, sans-serif;
+}
+.mytext-p2{
+    font-weight: bolder;
+    font:16px HelveticaLTStdBold, sans-serif;
+}
+.mytext-p3{
+    font-weight: bolder;
+    text-indent: 18px;
+    font:18px HelveticaLTStdBold, sans-serif;
+}
+/* 👆上面是自定义类样式 */
+/* *************************************************************** */
+/* 华丽的分割线 */
+/* *************************************************************** */
 /* 注册登录按钮 */
 .btn-lg, .btn-group-lg > .btn {
     padding: 10px 16px;
@@ -179,7 +206,7 @@ div#rank .rank-items .rank-info span{
 div#rank .rank-items div .title{
     margin-top:0px; 
     font-weight: bold;
-    font:HelveticaLTStdRoman, sans-serif;
+    font-family: HelveticaLTStdRoman, sans-serif;
 }
 /* 文本介绍处理 */
 div#rank .rank-items div p{
@@ -208,6 +235,7 @@ div#rank .rank-items div p{
 /* 华丽的分割线 */
 /* *************************************************************** */
 
+/* 漫画列表页面样式 */
 /* 自定义图标 */
 [my-icon="icon-gufeng"]
 {
@@ -374,3 +402,46 @@ ul.book-item li:hover{
 transform: scale(1.1);
 }
 /* 漫画项 */
+/* 👆上面是漫画列表样式 */
+
+/* *************************************************************** */
+/* 华丽的分割线 */
+/* *************************************************************** */
+/* 漫画最新内容展示样式 */
+.new-pic .pic-items .item{
+    margin: 5px 0;
+}
+.new-pic .pic-items img,.pic-item-img{
+    width: 800px;
+}
+.focus{
+    margin: 0 15px;
+}
+div.unLogin{
+    text-align: center;
+}
+div.unLogin .unLogin-info{
+    display: block;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+    border-radius:50px;
+    background-color: #6cb132;
+}
+
+
+/* 👆上面是漫画最新内容展示样式 */
+
+
+
+
+
+
+/* *************************************************************** */
+/* 华丽的分割线 */
+/* *************************************************************** */
+/* 漫画目录样式 */
+
+
+/* 👆上面是漫画漫画目录样式 */
