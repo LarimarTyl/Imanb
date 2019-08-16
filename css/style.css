@@ -185,7 +185,7 @@ div#projects {margin-top:50px}
 
 	div.projects-band-nohidden {margin:25px 0 25px;width:100%}
 	div.projects-band-nohidden ul {list-style:none;overflow:hidden;padding-top:15px;width:1280px}
-	div.projects-band-nohidden ul li {float:left;margin-bottom: 20px;margin-right:53px;height:320px}
+	div.projects-band-nohidden ul li {float:left;margin-bottom: 30px;margin-right:53px;height:320px}
 	div.projects-band-nohidden ul li a {display:block;width:200px;height:230px;position:relative}
 	div.projects-band-nohidden ul li:last-child a {margin-right:0}
 	
