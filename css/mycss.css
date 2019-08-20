@@ -2,7 +2,7 @@
 ul,ol{
     list-style: none;
 }
-h1,h2,h3,h4,h5{
+h1,h2,h3,h4,h5,p{
     margin: 0px;
 }
 a:hover, a:focus {
@@ -29,10 +29,19 @@ a:hover, a:focus {
     font-weight: bolder;
     font:22px HelveticaLTStdRoman, sans-serif;
 }
+.mytext-title-indent{
+    font-weight: bolder;
+    font:22px HelveticaLTStdRoman, sans-serif;
+    text-indent: 20px;
+}
 .mytext-p{
     font-weight: bolder;
     font-weight: 900;
     font:14px JapanRegular, sans-serif;
+}
+.mytext-p1{
+    /* font-weight: bolder; */
+    font:10px HelveticaLTStdBold, sans-serif;
 }
 .mytext-p2{
     font-weight: bolder;
@@ -44,12 +53,23 @@ a:hover, a:focus {
 }
 .mytext-p3-indent{
     font-weight: bolder;
-    text-indent: 18px;
+    text-indent: 8px;
     font:18px HelveticaLTStdBold, sans-serif;
 }
 
+
 .f4{
     margin-right:20px; 
+}
+.f5{
+    margin-right: 5px;
+}
+
+/* 点赞 */
+a.likes-select {
+    padding-left: 20px;
+    background: url(../images/icons/portfolio/like-select.png) no-repeat 0 25%;
+    background-size: 20px;
 }
 /* 👆上面是自定义类样式 */
 /* *************************************************************** */
@@ -90,7 +110,26 @@ a:hover, a:focus {
 }
 /* 搜索框内容 */
 
+/*用户图标位置*/
+ul#main-menu li a.user-ican:hover{
+  background: none;
+}
+div.user .user-ican {
+    margin-top: -25px;
+}
+div.user .user-ican img{
+    width: 60px;
+    border-radius: 60px;
+}
+div.user  .username{
+    margin-top: 20px;
+}
+
+
 /* 轮播图内容 */
+div.bg-wood .big{
+    width: 1900px;
+}
 div#slider-item {
     position: relative;
     top: -78px;
@@ -257,7 +296,7 @@ div#rank .rank-items div p{
 
 /* 漫画列表页面样式 */
 /* 自定义图标 */
-[my-icon="icon-gufeng"]
+[my-icon="gufeng"]
 {
 	display:block;
 	width:100%;
@@ -269,7 +308,7 @@ div#rank .rank-items div p{
     z-index: 99;
 	
 }
-[my-icon="icon-gaoxiao"]
+[my-icon="gaoxiao"]
 {
 	display:block;
 	width:100%;
@@ -279,7 +318,8 @@ div#rank .rank-items div p{
     z-index: 99;
 	
 }
-[my-icon="icon-xianxia"]
+
+[my-icon="xianxia"]
 {
 	display:block;
 	width:100%;
@@ -289,7 +329,7 @@ div#rank .rank-items div p{
     z-index: 99;
 	
 }
-[my-icon="icon-xiaoyuan"]
+[my-icon="xiaoyuan"]
 {
 	display:block;
 	width:100%;
@@ -298,7 +338,7 @@ div#rank .rank-items div p{
     background-size: cover;
     z-index: 99;	
 }
-[my-icon="icon-maoxian"]
+[my-icon="maoxian"]
 {
 	display:block;
 	width:100%;
@@ -308,7 +348,7 @@ div#rank .rank-items div p{
     z-index: 99;
 	
 }
-[my-icon="icon-yanqing"]
+[my-icon="yanqing"]
 {
 	display:block;
 	width:100%;
@@ -318,7 +358,7 @@ div#rank .rank-items div p{
     z-index: 99;
 	
 }
-[my-icon="icon-dushi"]
+[my-icon="dushi"]
 {
 	display:block;
 	width:100%;
@@ -328,7 +368,7 @@ div#rank .rank-items div p{
     z-index: 99;
 	
 }
-[my-icon="icon-xuanhuan"]
+[my-icon="xuanhuan"]
 {
 	display:block;
 	width:100%;
@@ -337,7 +377,7 @@ div#rank .rank-items div p{
     background-size: cover;
 	z-index: 99;
 }
-[my-icon="icon-more"]
+[my-icon="more"]
 {
 	display:block;
 	width:80%;
@@ -346,22 +386,22 @@ div#rank .rank-items div p{
     background-size: cover;
     z-index: 99;
 }
-[my-icon="icon-nan"]
+[my-icon="guoman"]
 {
 	display:block;
 	width:100%;
 	height:100%;
-    background:url(../images/icons/portfolio/nan.png);
+    background:url(../images/icons/portfolio/guoman.png);
     background-size: cover;
     z-index: 99;
 	
 }
-[my-icon="icon-nv"]
+[my-icon="riman"]
 {
 	display:block;
 	width:100%;
 	height:100%;
-    background:url(../images/icons/portfolio/nv.png);
+    background:url(../images/icons/portfolio/riman.png);
     background-size: cover;
     z-index: 99;
 }
@@ -537,6 +577,10 @@ div#catalog .catalog-info{
     padding:30px 0px 30px 20px;
     background-color: #fffefea1;
 }
+/* 排序按钮 */
+div#catalog .catalog-info .order{
+    margin-bottom:20px; 
+}
 div#catalog .catalog-info .catalog-info-contant .catalog-item{
     display: block;
     width: 263px;
@@ -625,3 +669,93 @@ div.ranks .rank-items div p{
     overflow: hidden;
 }
 /* 👆上面是漫画漫画目录样式 */
+
+/* *************************************************************** */
+/* 华丽的分割线 */
+/* *************************************************************** */
+/* 用户信息样式 */
+div#user-info{
+    width: 100%;
+    height: auto;
+    min-height: 589px;
+    max-height: 1000px;
+    margin-bottom: 135px;
+}
+/* 左侧导航按钮 */
+div#user-info .user-tabs{
+    width: 21.875%;
+    background-color:#fffefea1;
+    padding: 20px 0px;
+    margin-bottom: 135px;
+}
+div#user-info .user-tabs .user-tab li{
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+.userlist-select{
+    border: #6cb132 5px solid;
+    background-color: lawngreen
+}
+.userlist-active{
+    border: #6cb132 5px solid;
+    background-color: lawngreen
+}
+/* 右侧内容 */
+div#user-info .user-content{
+    width: 76%;
+    /* height: 100%; */
+    margin-bottom: 75px;
+    background-color:#fffefea1;
+    padding: 10px 0px;
+}
+div#user-info .user-content div.tab-content div{
+    padding: 10px;
+}
+/* 用户信息页面 */
+div#user-info .user-content div.tab-content div.info-head{
+    height: 100px;
+}
+ #my-info img,#change-info img{
+    width: 80px;
+    border-radius: 80px;
+}
+/* 上传图片模态框 */
+div#changeImgModal .modal-body{
+    height: 300px;
+}
+/* 上传图片回显 */
+div#changeImgModal .modal-body h1{
+    margin-bottom: 50px;
+}
+div#changeImgModal .modal-body img{
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    object-fit: cover;
+}
+#my-info .user-info-nickname,#change-info .user-info-nickname{
+   margin-top: 5px;
+}
+/* 订阅 阅读记录 漫画单项样式 */
+div#user-info div.user-item{
+    width: 24%;
+    height:370px ;
+    padding: 3px;
+    margin-top: 10px;
+    margin:10px 3px;
+    border: #c9c8c8 1px solid;
+    float: left;
+}
+div#user-info div.user-item img{
+    width: 100%;
+}
+div.user-item .pagecontroller{
+    width: 100%;
+    padding-top: 0px;
+}
+.pagination{
+    margin: 0px;
+}
+/* 用户信息样式 */
