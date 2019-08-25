@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>爱漫吧管理后台</title>
+    <link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<script>
+    $(function () {
+        $(".admin-tab li").on("click", function () {
+            $(this).addClass("left_active").siblings().removeClass("left_active").removeClass("admin-active");
+        });
+        $(".admin-tab li").mouseenter(function () {
+            $(this).addClass("admin-active").siblings().removeClass("admin-active")
+        }).mouseleave(function () {
+            $(this).css("background-color", "");
+        });
+        $(".list-btn").click(function () { 
+            $(".admin-tabs").toggleClass("short");
+            $(".admin-tabs .admin-tab").toggleClass("short");
+            $(".admin-tabs .admin-tab li").toggleClass("short");
+            $("#admin-content").toggleClass("long").toggleClass("wd80")
+         })
+    });   
+</script>
+<!-- 头像上传预览 -->
+<script>
+     $(function(){
+        $(".newInputIcon").change(function () {
+        var filePath = $(this).val();
+        var fileType = filePath.substring(filePath.lastIndexOf("."));
+        if (fileType == ".jpg" ||fileType == ".JPG") {
+            $(this).parent().siblings("img").attr("src", URL.createObjectURL($(this)[0].files[0]));
+        } else {
+            var flag = confirm("上传图片格式不正确，请重新选择(.jpg)");
+        }
+    });
+     })
+</script>
+<body>
+    <div id="head" class="head">
+        <div class="logo left mr40">
+            I❤Manb
+        </div>
+        <div class="logo left">
+            <a href="#" class="btn list-btn"><span class="btn-icon" my-icon="list"></span></a>
+        </div>
+        <div class="admin right">
+            <div class="left icon mr20">
+            <a href="#" class="admin-ican"><img src="images/avatar_4.jpg" alt=""></a>
+            <p class="center adminname mytext-p">larimar</p>
+            </div>
+            <a class="loginOut right mr40" href="#">退出</a>
+        </div>
+    </div>
+    <div id="admin-tabs" class="left-tab admin-tabs wd15 left mt20 m15">
+        
+        <div role="tabpanel">
+            <!-- 导航栏Nav tabs -->
+            <ul class="admin-tab" role="tablist">
+                <li role="presentation" class="left_active active">
+                    <a href="#home" aria-controls="home" role="tab" data-toggle="tab"><span>🏠 </span>  管理中心</a>
+                </li>
+                <li role="presentation">
+                    <a href="#user" aria-controls="user" role="tab" data-toggle="tab"><span>👤 </span>  用户管理</a>
+                </li>
+                <li role="presentation">
+                    <a href="#comic" aria-controls="comic" role="tab" data-toggle="tab"><span>📚 </span> 漫画管理</a>
+                </li>
+                <li role="presentation">
+                    <a href="#orders" aria-controls="orders" role="tab" data-toggle="tab"><span>📫 </span> 订阅管理</a>
+                </li>
+                <li role="presentation">
+                    <a href="#update" aria-controls="update" role="tab" data-toggle="tab"><span>✨ </span> 更新管理</a>
+                </li>
+                <li role="presentation">
+                    <a href="#comment" aria-controls="comment" role="tab" data-toggle="tab"><span>📋 </span> 评论管理</a>
+                </li>
+                <li role="presentation">
+                    <a href="#history" aria-controls="history" role="tab" data-toggle="tab"><span>📅 </span> 历史管理</a>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    <div id="admin-content" class=" wd80 m15 left" >
+         <!-- 内容栏Tab panes -->
+         <div class="tab-content admin-content">
+            <div role="tabpanel" class="tab-pane admin-content-item active" id="home">
+                <div class="col-xs-8 col-md-4 item">
+                    <a href="#" class="thumbnail">
+                        <h2 class="title">103
+                            <span my-icon="users" class="right myIcon"></span>
+                        <h4 class="discription">总用户</h4>
+                    </a>
+                </div>
+                <div class="col-xs-8 col-md-4 item">
+                    <a href="#" class="thumbnail">
+                        <h2 class="title">103
+                            <span my-icon="user" class="right myIcon"></span>
+                        </h2>
+                        <h4 class="discription">有效用户</h4>
+                    </a>
+                </div>
+                <div class="col-xs-8 col-md-4 item">
+                    <a href="#" class="thumbnail">
+                        <h2 class="title">103
+                            <span my-icon="user" class="right myIcon"></span>
+                        </h2>
+                        <h4 class="discription">封禁用户</h4>
+                    </a>
+                </div>
+                <div class="col-xs-8 col-md-4 item">
+                    <a href="#" class="thumbnail">
+                        <h2 class="title">103
+                             <span my-icon="book" class="right myIcon"></span>
+                        </h2>
+                        <h4 class="discription">漫画总量</h4>
+                    </a>
+                </div>
+                <div class="col-xs-8 col-md-4 item">
+                    <a href="#" class="thumbnail">
+                        <h2 class="title">103
+                             <span my-icon="hot" class="right myIcon"></span>
+                        </h2>
+                        <h4 class="discription">热门漫画</h4>
+                    </a>
+                </div>
+                <div class="col-xs-8 col-md-4 item">
+                    <a href="#" class="thumbnail">
+                        <h2 class="title">103
+                             <span my-icon="new" class="right myIcon"></span>
+                        </h2>
+                        <h4 class="discription">最新漫画</h4>
+                    </a>
+                </div>
+                <div class="col-xs-8 col-md-4 item">
+                    <a href="#" class="thumbnail">
+                        <h2 class="title">103
+                             <span my-icon="comic" class="right myIcon"></span>
+                        </h2>
+                        <h4 class="discription">完结漫画</h4>
+                    </a>
+                </div>
+                <div class="col-xs-8 col-md-4 item">
+                    <a href="#" class="thumbnail">
+                        <h2 class="title">103
+                             <span my-icon="comments" class="right myIcon"></span>
+                        </h2>
+                        <h4 class="discription">评论数</h4>
+                    </a>
+                </div>
+                <div class="col-xs-8 col-md-4 item">
+                    <a href="#" class="thumbnail">
+                        <h2 class="title">103
+                             <span my-icon="upload" class="right myIcon"></span>
+                        </h2>
+                        <h4 class="discription">更新数</h4>
+                    </a>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane  admin-content-item" id="user">
+                <h1>用户管理</h1>
+                <br>
+                <div class="panel panel-default">
+                    <!-- 搜索部分 -->
+                        <div class="panel-body">
+                            <form class="form-inline" method="get" action="">
+                                <div class="form-group">
+                                    <label for="userName">用户名</label>
+                                    <input type="text" class="form-control" id="userName" value="" name="userName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">性别</label>
+                                    <select class="form-control" id="gender" name="gender">
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-primary">查询</button>
+                            </form>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addUserDialog" onclick="clearDept()">新建用户</a>
+                 <!-- 添加用户模态框 -->
+                <div class="modal fade" id="addUserDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">添加用户信息</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" id="new_user_form">
+                                    <div class="form-group">
+                                        <label for="new_photo" class="col-sm-2 control-label">头像</label>
+                                        <div class="col-sm-4">
+                                            <input type="file" name="photo" class="user-icon newInputIcon" id="new_photo">
+                                        </div>
+                                        <label for="new_showPhoto" class="col-sm-2 control-label">头像预览</label>
+                                        <img src="" alt="" id="userPhoto" class="userPhoto">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new_name" class="col-sm-2 control-label">用户名</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="new_name" placeholder="用户名" name="loginname">
+                                        </div>
+                                        <label for="new_password" class="col-sm-2 control-label">密码</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="edit_password" placeholder="密码" name="password" >
+                                        </div>
+                                    </div>  
+                                    <div class="form-group">
+                                            <label for="new_gender" class="col-sm-2 control-label">
+                                                    性别</label>
+                                                   <div class="col-sm-4"> 
+                                                       <select class="form-control" id="new_gender" name="gender">
+                                                           <option value="女">女</option>
+                                                           <option value="男">男</option>
+                                                       </select>
+                                                   </div>
+                                        <label for="new_email" class="col-sm-2 control-label">Email</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="new_email" placeholder="邮箱" name="email">
+                                        </div>
+                                    </div>   
+                                    <div class="form-group">
+                                        <label for="new_qq" class="col-sm-2 control-label">QQ</label>
+                                         <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="new_qq" placeholder="QQ" name="qq">
+                                        </div>
+                                        <label for="new_nickName" class="col-sm-2 control-label">昵称</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="new_nickName" placeholder="昵称" name="nickName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new_status" class="col-sm-2 control-label">状态</label>
+                                        <div class="col-sm-4"> 
+                                            <select class="form-control" id="new_gender" name="gender">
+                                                <option value="0">待激活</option>
+                                                <option value="1">激活</option>
+                                                <option value="-1">封禁</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" onclick="createplayer()">创建用户</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped user-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>#</th>
+                            <th>头像</th>
+                            <th>用户名</th>
+                            <th>密码</th>
+                            <th>性别</th>
+                            <th>邮箱</th>
+                            <th>QQ</th>
+                            <th>昵称</th>
+                            <td>状态</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <th><img src="images/blog_thumb.jpg" alt="" id="userPhoto" class="userPhoto"></th>
+                            <th>用户名</th>
+                            <th>密码</th>
+                            <th>性别</th>
+                            <th>邮箱</th>
+                            <th>QQ</th>
+                            <th>昵称</th>
+                            <td>状态</td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#userEditDialog" onclick="editplayer(1)">修改</a>
+                                <a href="#" class="btn btn-danger btn-xs" onclick="deleteplayer()">删除</a>
+                           </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <th>头像</th>
+                            <th>用户名</th>
+                            <th>密码</th>
+                            <th>性别</th>
+                            <th>邮箱</th>
+                            <th>QQ</th>
+                            <th>昵称</th>
+                            <td>状态</td>
+                            <td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#userEditDialog" onclick="editplayer(1)">修改</a>
+                                <a href="#" class="btn btn-danger btn-xs" onclick="deleteplayer()">删除</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-12 pagination-center center">
+                    <nav>
+                        <ul class="pagination">
+                            <li ><a href="#">首页 </a></li>
+                            <li ><a href="#">上一页 </a></li>
+                            <li><a href="#">1</a></li>
+                            <li ><a href="#">下一页</a></li>
+                            <li ><a href="#">尾页</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- 修改用户模态框 -->
+                <div class="modal fade" id="userEditDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">修改用户信息</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" id="edit_user_form">
+                                        <input type="hidden" id="edit_id" name="userId">
+                                        <div class="form-group">
+                                                <label for="edit_photo" class="col-sm-2 control-label">更改头像</label>
+                                                <div class="col-sm-4">
+                                                    <input type="file" name="photo" class="user-icon newInputIcon" id="edit_photo">
+                                                </div>
+                                                <label for="edit_showPhoto" class="col-sm-2 control-label">头像预览</label>
+                                                <img src="images/blog_thumb.jpg" alt="" id="userPhoto" class="userPhoto">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="edit_name" class="col-sm-2 control-label">用户名</label>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control" id="edit_name" placeholder="用户名" name="loginname">
+                                                </div>
+                                                <label for="edit_password" class="col-sm-2 control-label">密码</label>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control" id="edit_password" placeholder="密码" name="password" >
+                                                </div>
+                                            </div>  
+                                            <div class="form-group">
+                                                    <label for="edit_gender" class="col-sm-2 control-label">
+                                                            性别</label>
+                                                           <div class="col-sm-4"> 
+                                                               <select class="form-control" id="edit_gender" name="gender">
+                                                                   <option value="女">女</option>
+                                                                   <option value="男">男</option>
+                                                               </select>
+                                                           </div>
+                                                <label for="edit_email" class="col-sm-2 control-label">Email</label>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control" id="edit_email" placeholder="邮箱" name="email">
+                                                </div>
+                                            </div>   
+                                            <div class="form-group">
+                                                <label for="edit_qq" class="col-sm-2 control-label">QQ</label>
+                                                 <div class="col-sm-4">
+                                                    <input type="text" class="form-control" id="edit_qq" placeholder="QQ" name="qq">
+                                                </div>
+                                                <label for="edit_nickName" class="col-sm-2 control-label">昵称</label>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control" id="edit_nickName" placeholder="昵称" name="nickName">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="edit_status" class="col-sm-2 control-label">状态</label>
+                                                <div class="col-sm-4"> 
+                                                    <select class="form-control" id="edit_gender" name="gender">
+                                                        <option value="0">待激活</option>
+                                                        <option value="1">激活</option>
+                                                        <option value="-1">封禁</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" onclick="updateplayer()">保存修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane  admin-content-item" id="orders">
+                <h1>订阅管理</h1><br>
+                <div class="panel-body">
+                        <form class="form-inline" method="get" action="">
+                            <div class="form-group">
+                                <label for="">漫画名称</label>
+                                <input type="text" class="form-control" id="" value="" name="comicName">
+                            </div>
+                            <div class="form-group">
+                                    <label for="">用户名</label>
+                                    <input type="text" class="form-control" id="" value="" name="userName">
+                                </div>
+                            <div class="form-group">
+                                <label for="typeName">类别</label>
+                                <select class="form-control" id="typeName" name="typeName">
+                                    <option value="玄幻">玄幻</option>
+                                    <option value="言情">言情</option>
+                                    <option value="都市">都市</option>
+                                    <option value="冒险">冒险</option>
+                                    <option value="校园">校园</option>
+                                    <option value="仙侠">仙侠</option>
+                                    <option value="搞笑">搞笑</option>
+                                    <option value="热血">热血</option>
+                                    <option value="穿越">穿越</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">地区</label>
+                                <select class="form-control" id="location" name="location">
+                                    <option value="国漫">国漫</option>
+                                    <option value="日漫">日漫</option>
+                                    <option value="其他漫画">其他漫画</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-primary">查询</button>
+                        </form>
+                </div>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#newOrdersDialog" onclick="clearDept()">添加订阅</a>
+                <div class="modal fade" id="newOrdersDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">修改订阅信息</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal" id="add_orders_form">
+                                        <div class="form-group">
+                                                <label for="add_order_comic" class="col-sm-2 control-label">漫画名</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="add_order_comic" placeholder="漫画名" name="comicName">
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="edit_order_user" class="col-sm-2 control-label">用户名</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="userName" class="form-control" placeholder="用户名"  id="edit_order_user">
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="add_order_status" class="col-sm-2 control-label">订阅状态</label>
+                                                <div class="col-sm-10">
+                                                    <select name="status" class="form-control" id="add_order_status">
+                                                        <option value="0">未更新</option>
+                                                        <option value="1">已更新</option>
+                                                        <option value="-1">已读更新</option>
+                                                    </select>
+                                                </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <button type="button" class="btn btn-primary" onclick="updateComic()">保存修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <table class="table table-striped">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>#</th>
+                                <th>漫画名</th>
+                                <th>用户名</th>
+                                <th>订阅状态</th>
+                                <td>操作</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <th>漫画名</th>
+                                <th>用户名</th>
+                                <th>订阅状态</th>
+                                <td>
+                                    <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ordersEditDialog" onclick="editplayer(1)">修改</a>
+                                    <a href="#" class="btn btn-danger btn-xs" onclick="deleteplayer()">删除</a>
+                               </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <th>漫画名</th>
+                                <th>用户名</th>
+                                <th>订阅状态</th>
+                                <td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ordersEditDialog" onclick="editplayer(1)">修改</a>
+                                    <a href="#" class="btn btn-danger btn-xs" onclick="deleteplayer()">删除</a></td>
+                            </tr>
+                        </tbody>
+                </table>
+                <div class="col-md-12 pagination-center center">
+                        <nav>
+                            <ul class="pagination">
+                                <li ><a href="#">首页 </a></li>
+                                <li ><a href="#">上一页 </a></li>
+                                <li><a href="#">1</a></li>
+                                <li ><a href="#">下一页</a></li>
+                                <li ><a href="#">尾页</a></li>
+                            </ul>
+                        </nav>
+                </div>
+                <div class="modal fade" id="ordersEditDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">修改订阅信息</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" id="edit_orders_form">
+                                        <input type="hidden" id="edit_id" name="ordersId">
+                                    <div class="form-group">
+                                            <label for="edit_order_comic" class="col-sm-2 control-label">漫画名</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="edit_name" placeholder="漫画名" name="comicName">
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="edit_order_user" class="col-sm-2 control-label">用户名</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="userName" class="form-control" placeholder="用户名"  id="edit_order_user">
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="edit_order_status" class="col-sm-2 control-label">订阅状态</label>
+                                            <div class="col-sm-10">
+                                                <select name="status" class="form-control" id="edit_order_status">
+                                                    <option value="0">未更新</option>
+                                                    <option value="1">已更新</option>
+                                                    <option value="-1">已读更新</option>
+                                                </select>
+                                            </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" onclick="updateComic()">保存修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane  admin-content-item" id="comic">
+                <h1>漫画管理</h1><br>
+                <div class="panel panel-default">
+                    <!-- 搜索部分 -->
+                    <div class="panel-body">
+                        <form class="form-inline" method="get" action="">
+                            <div class="form-group">
+                                <label for="">漫画名称</label>
+                                <input type="text" class="form-control" id="" value="" name="comicName">
+                            </div>
+                            <div class="form-group">
+                                <label for="typeName">类别</label>
+                                <select class="form-control" id="typeName" name="typeName">
+                                    <option value="玄幻">玄幻</option>
+                                    <option value="言情">言情</option>
+                                    <option value="都市">都市</option>
+                                    <option value="冒险">冒险</option>
+                                    <option value="校园">校园</option>
+                                    <option value="仙侠">仙侠</option>
+                                    <option value="搞笑">搞笑</option>
+                                    <option value="热血">热血</option>
+                                    <option value="穿越">穿越</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">地区</label>
+                                <select class="form-control" id="location" name="location">
+                                    <option value="国漫">国漫</option>
+                                    <option value="日漫">日漫</option>
+                                    <option value="其他漫画">其他漫画</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-primary">查询</button>
+                        </form>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addComicDialog" onclick="clearDept()">添加漫画</a>
+                <!-- 添加漫画模态框 -->
+               <div class="modal fade" id="addComicDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">添加动漫信息</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal" id="new_comic_form">
+                                        <div class="form-group">
+                                            <label for="new_photo" class="col-sm-2 control-label">封面</label>
+                                            <div class="col-sm-4">
+                                                <input type="file" name="photo" class="comic-icon newInputIcon" id="new_photo">
+                                            </div>
+                                            <label for="new_showPhoto" class="col-sm-2 control-label">封面预览</label>
+                                            <img src="" alt="" id="userPhoto" class="comicPhoto">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="new_name" class="col-sm-2 control-label">漫画名</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="new_name" placeholder="漫画名" name="comicName">
+                                            </div>
+                                            <label for="new_password" class="col-sm-2 control-label">作者</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="edit_password" placeholder="作者" name="author" >
+                                            </div>
+                                        </div>  
+                                        <div class="form-group">
+                                                <label for="typeName" class="col-sm-2 control-label">类别</label>
+                                                <div class="col-sm-4">
+                                                    <select class="form-control" id="typeName" name="typeName">
+                                                            <option value="玄幻">玄幻</option>
+                                                            <option value="言情">言情</option>
+                                                            <option value="都市">都市</option>
+                                                            <option value="冒险">冒险</option>
+                                                            <option value="校园">校园</option>
+                                                            <option value="仙侠">仙侠</option>
+                                                            <option value="搞笑">搞笑</option>
+                                                            <option value="热血">热血</option>
+                                                            <option value="穿越">穿越</option>
+                                                    </select>
+                                                </div>
+                                                <label for="location" class="col-sm-2 control-label">地区</label>
+                                                <div class="col-sm-4">
+                                                    <select class="form-control" id="location" name="location">
+                                                        <option value="国漫">国漫</option>
+                                                        <option value="日漫">日漫</option>
+                                                        <option value="其他漫画">其他漫画</option>
+                                                    </select>
+                                                </div>
+                                        </div> 
+                                        <div class="form-group">
+                                            <label for="new_update" class="col-sm-2 control-label">更新时间</label>
+                                            <div class="col-sm-4">
+                                                <input type="date"  class="form-control" id="new_update"  name="newUpdate">
+                                            </div>
+                                            <label for="newChapterName" class="col-sm-2 control-label">最新章节</label>
+                                             <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="newChapterName" placeholder="最新章节" name="newChapterName">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="new_mark" class="col-sm-2 control-label">评分</label>
+                                             <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="new_mark" placeholder="评分" name="mark">
+                                            </div>
+                                            <label for="new_status" class="col-sm-2 control-label">状态</label>
+                                            <div class="col-sm-4">
+                                                    <select class="form-control" id="new_status" name="status">
+                                                        <option value="1">连载中</option>
+                                                            <option value="0">完结</option>
+                                                            <option value="-1">停更</option>
+                                                        </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="introduction" class="col-sm-2 control-label">漫画简介</label>
+                                            <div class="col-sm-10">
+                                                <textarea name="introduction" id="introduction" cols="55" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <button type="button" class="btn btn-primary" onclick="createplayer()">添加漫画</button>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <table class="table table-striped comic-table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>#</th>
+                                <th>封面</th>
+                                <th>漫画名</th>
+                                <th>作者</th>
+                                <th>漫画类型</th>
+                                <th>地区</th>
+                                <th>最近更新时间</th>
+                                <th>最新章节</th>
+                                <td>漫画简介</td>
+                                <td>状态</td>
+                                <td>评分</td>
+                                <td>操作</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <th> <img src="images/comics/480687201872.jpg" alt="" id="userPhoto" class="comicPhoto"></th>
+                                <th>漫画名</th>
+                                <th>作者</th>
+                                <th>漫画类型</th>
+                                <th>地区</th>
+                                <th>最近更新时间</th>
+                                <th>最新章节</th>
+                                <td>简介</td>
+                                <td>状态</td>
+                                <td>评分</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#comicEditDialog" onclick="editplayer(1)">修改</a>
+                                    <a href="#" class="btn btn-danger btn-xs" onclick="deleteplayer()">删除</a>
+                               </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <th>封面</th>
+                                <th>漫画名</th>
+                                <th>作者</th>
+                                <th>漫画类型</th>
+                                <th>地区</th>
+                                <th>最近更新时间</th>
+                                <th>最新章节</th>
+                                <td>漫画简介</td>
+                                <td>状态</td>
+                                <td>评分</td>
+                                <td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#comicEditDialog" onclick="editplayer(1)">修改</a>
+                                    <a href="#" class="btn btn-danger btn-xs" onclick="deleteplayer()">删除</a></td>
+                            </tr>
+                        </tbody>
+                </table>
+                <div class="col-md-12 pagination-center center">
+                        <nav>
+                            <ul class="pagination">
+                                <li ><a href="#">首页 </a></li>
+                                <li ><a href="#">上一页 </a></li>
+                                <li><a href="#">1</a></li>
+                                <li ><a href="#">下一页</a></li>
+                                <li ><a href="#">尾页</a></li>
+                            </ul>
+                        </nav>
+                </div>
+                <div class="modal fade" id="comicEditDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">修改漫画信息</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" id="edit_comic_form">
+                                    <input type="hidden" id="edit_id" name="comicId">
+                                    <div class="form-group">
+                                        <label for="edit_photo" class="col-sm-2 control-label">封面</label>
+                                        <div class="col-sm-4">
+                                            <input type="file" name="photo" class="comic-icon newInputIcon" id="edit_photo">
+                                        </div>
+                                        <label for="edit_showPhoto" class="col-sm-2 control-label">封面预览</label>
+                                        <img src="images/comics/480687201872.jpg" alt="" id="userPhoto" class="comicPhoto">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit_name" class="col-sm-2 control-label">漫画名</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="edit_name" placeholder="漫画名" name="comicName">
+                                        </div>
+                                        <label for="edit_password" class="col-sm-2 control-label">作者</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="edit_password" placeholder="作者" name="author">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="typeName" class="col-sm-2 control-label">类别</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control" id="typeName" name="typeName">
+                                                <option value="玄幻">玄幻</option>
+                                                <option value="言情">言情</option>
+                                                <option value="都市">都市</option>
+                                                <option value="冒险">冒险</option>
+                                                <option value="校园">校园</option>
+                                                <option value="仙侠">仙侠</option>
+                                                <option value="搞笑">搞笑</option>
+                                                <option value="热血">热血</option>
+                                                <option value="穿越">穿越</option>
+                                            </select>
+                                        </div>
+                                        <label for="location" class="col-sm-2 control-label">地区</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control" id="location" name="location">
+                                                <option value="国漫">国漫</option>
+                                                <option value="日漫">日漫</option>
+                                                <option value="其他漫画">其他漫画</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit_update" class="col-sm-2 control-label">更新时间</label>
+                                        <div class="col-sm-4">
+                                            <input type="date" class="form-control" id="edit_update" name="newUpdate">
+                                        </div>
+                                        <label for="newChapterName" class="col-sm-2 control-label">最新章节</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="newChapterName" placeholder="最新章节"
+                                                name="newChapterName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit_mark" class="col-sm-2 control-label">评分</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="edit_mark" placeholder="评分" name="mark">
+                                        </div>
+                                        <label for="edit_status" class="col-sm-2 control-label">状态</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control" id="edit_status" name="status">
+                                                <option value="1">连载中</option>
+                                                <option value="0">完结</option>
+                                                <option value="-1">停更</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="introduction" class="col-sm-2 control-label">漫画简介</label>
+                                        <div class="col-sm-10">
+                                            <textarea name="introduction" id="introduction" cols="55" rows="10"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" onclick="updateComic()">保存修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane  admin-content-item" id="update">更新管理</div>
+            <div role="tabpanel" class="tab-pane  admin-content-item" id="comment">评论管理</div>
+            <div role="tabpanel" class="tab-pane  admin-content-item" id="history">历史管理</div>
+        </div>
+    </div>
+</body>
+</html>
