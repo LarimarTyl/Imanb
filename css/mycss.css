@@ -2,7 +2,7 @@
 ul,ol{
     list-style: none;
 }
-h1,h2,h3,h4,h5,p{
+h1,h2,h3,h4,h5{
     margin: 0px;
 }
 a:hover, a:focus {
@@ -124,7 +124,13 @@ div.user .user-ican img{
 div.user  .username{
     margin-top: 20px;
 }
-
+ul#main-menu li a.loginOut{
+    margin-left: -30px;
+}
+ul#main-menu li a.loginOut:hover {
+    background: none;
+    text-decoration: underline;
+}
 
 /* 轮播图内容 */
 div.bg-wood .big{
@@ -694,15 +700,20 @@ div#user-info .user-tabs .user-tab li{
     margin-bottom: 10px;
     padding-left: 20px;
 }
+div#user-info .user-tabs .user-tab li a{
+    display: block;
+    height: 100%;
+    line-height: 38px;
+    width: 100%;
+}
 .userlist-select{
-    border: #6cb132 5px solid;
-    background-color: lawngreen
+    border: #1275ba3d 5px solid;
+    background-color: #337ab738;
 }
 .userlist-active{
-    border: #6cb132 5px solid;
-    background-color: lawngreen
+    border: #1275ba3d 5px solid;
+    background-color: #337ab738;
 }
-/* 右侧内容 */
 div#user-info .user-content{
     width: 76%;
     /* height: 100%; */
