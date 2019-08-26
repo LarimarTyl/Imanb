@@ -254,6 +254,16 @@ table.comic-table> thead > tr > th, table.comic-table> tbody > tr > th, table.co
 img.comicPhoto{
     width: 60px;
     height: 80px;
-    border-radius:10px; 
+    border-radius:5px; 
     object-fit: cover;
+}
+.img{
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    margin: 10px;
+}
+table.detail-table> thead > tr > th, table.detail-table> tbody > tr > th, table.detail-table> tfoot > tr > th, table.detail-table> thead > tr > td, table.detail-table> tbody > tr > td, table.detail-table> tfoot > tr > td
+{
+    line-height: 80px;
 }

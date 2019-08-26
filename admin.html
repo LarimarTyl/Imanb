@@ -11,38 +11,14 @@
     <link rel="stylesheet" href="css/admin.css">
     <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
 </head>
 <script>
-    $(function () {
-        $(".admin-tab li").on("click", function () {
-            $(this).addClass("left_active").siblings().removeClass("left_active").removeClass("admin-active");
-        });
-        $(".admin-tab li").mouseenter(function () {
-            $(this).addClass("admin-active").siblings().removeClass("admin-active")
-        }).mouseleave(function () {
-            $(this).css("background-color", "");
-        });
-        $(".list-btn").click(function () { 
-            $(".admin-tabs").toggleClass("short");
-            $(".admin-tabs .admin-tab").toggleClass("short");
-            $(".admin-tabs .admin-tab li").toggleClass("short");
-            $("#admin-content").toggleClass("long").toggleClass("wd80")
-         })
-    });   
+  
 </script>
 <!-- 头像上传预览 -->
 <script>
-     $(function(){
-        $(".newInputIcon").change(function () {
-        var filePath = $(this).val();
-        var fileType = filePath.substring(filePath.lastIndexOf("."));
-        if (fileType == ".jpg" ||fileType == ".JPG") {
-            $(this).parent().siblings("img").attr("src", URL.createObjectURL($(this)[0].files[0]));
-        } else {
-            var flag = confirm("上传图片格式不正确，请重新选择(.jpg)");
-        }
-    });
-     })
+   
 </script>
 <body>
     <div id="head" class="head">
@@ -78,7 +54,7 @@
                     <a href="#orders" aria-controls="orders" role="tab" data-toggle="tab"><span>📫 </span> 订阅管理</a>
                 </li>
                 <li role="presentation">
-                    <a href="#update" aria-controls="update" role="tab" data-toggle="tab"><span>✨ </span> 更新管理</a>
+                    <a href="#detail" aria-controls="detail" role="tab" data-toggle="tab"><span>✨ </span> 章节管理</a>
                 </li>
                 <li role="presentation">
                     <a href="#comment" aria-controls="comment" role="tab" data-toggle="tab"><span>📋 </span> 评论管理</a>
@@ -173,7 +149,7 @@
                     <!-- 搜索部分 -->
                         <div class="panel-body">
                             <form class="form-inline" method="get" action="">
-                                <div class="form-group">
+                                <div class="form-group"> 
                                     <label for="userName">用户名</label>
                                     <input type="text" class="form-control" id="userName" value="" name="userName">
                                 </div>
@@ -676,9 +652,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="introduction" class="col-sm-2 control-label">漫画简介</label>
+                                            <label for="introduction" class="col-sm-2  control-label">漫画简介</label>
                                             <div class="col-sm-10">
-                                                <textarea name="introduction" id="introduction" cols="55" rows="10"></textarea>
+                                                <textarea name="introduction" id="introduction" class="form-control" cols="55" rows="10"></textarea>
                                             </div>
                                         </div>
                                     </form>
@@ -835,7 +811,7 @@
                                     <div class="form-group">
                                         <label for="introduction" class="col-sm-2 control-label">漫画简介</label>
                                         <div class="col-sm-10">
-                                            <textarea name="introduction" id="introduction" cols="55" rows="10"></textarea>
+                                            <textarea name="introduction" class="form-control" id="introduction" cols="55" rows="10"></textarea>
                                         </div>
                                     </div>
                                 </form>
@@ -848,7 +824,210 @@
                     </div>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane  admin-content-item" id="update">更新管理</div>
+            <div role="tabpanel" class="tab-pane  admin-content-item" id="detail">
+                <h1>章节管理</h1><br>
+                <div class="panel panel-default">
+                        <!-- 搜索部分 -->
+                        <div class="panel-body">
+                            <form class="form-inline" method="get" action="">
+                                <div class="form-group">
+                                    <label for="">漫画名称</label>
+                                    <input type="text" class="form-control" id="" value="" name="comicName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="typeName">类别</label>
+                                    <select class="form-control" id="typeName" name="typeName">
+                                        <option value="玄幻">玄幻</option>
+                                        <option value="言情">言情</option>
+                                        <option value="都市">都市</option>
+                                        <option value="冒险">冒险</option>
+                                        <option value="校园">校园</option>
+                                        <option value="仙侠">仙侠</option>
+                                        <option value="搞笑">搞笑</option>
+                                        <option value="热血">热血</option>
+                                        <option value="穿越">穿越</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">地区</label>
+                                    <select class="form-control" id="location" name="location">
+                                        <option value="国漫">国漫</option>
+                                        <option value="日漫">日漫</option>
+                                        <option value="其他漫画">其他漫画</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-primary">查询</button>
+                            </form>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addDetailDialog" onclick="clearDept()">添加章节</a>
+                    <!-- 添加章节模态框 -->
+                   <div class="modal fade" id="addDetailDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel">添加章节信息</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="form-horizontal" id="new_detail_form">
+                                                <div class="form-group">
+                                                    <label for="new_detail_comicname" class="col-sm-2 control-label">漫画名</label>
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control" id="new_detail_comicname" placeholder="漫画名" name="comicName">
+                                                    </div>
+                                                    <label for="new_detail_chaptername" class="col-sm-2 control-label">章节名</label>
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control" id="new_detail_chaptername" placeholder="章节名" name="chaptername">
+                                                    </div>
+                                                </div>  
+                                                <div class="form-group">
+                                                    <label for="new_detail_updateTime" class="col-sm-2 control-label">更新时间</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="date"  class="form-control" id="new_detail_updateTime"  name="updateTime">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="generalize" class="col-sm-2 control-label">章节概况</label>
+                                                    <div class="col-sm-10">
+                                                        <textarea name="introduction" id="generalize" class="form-control" cols="55" placeholder="章节概况" rows="10"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="new_photo_path" class="col-sm-2 control-label">漫画图片</label>
+                                                        <div class="col-sm-4">
+                                                            <input type="file" multiple="multiple" name="pictures" class="comic-icon newInputPath" id="new_photo_path">
+                                                        </div>
+                                                        <label for="new_photo_path" class="col-sm-2 control-label">存放路径</label>
+                                                        <div class="col-sm-4">
+                                                            <input type="text"  name="path" class="form-control " id="new_photo_path">
+                                                        </div>
+                                                </div>
+                                                <h3 class="center">预览</h3>
+                                                <div class="form-group center" id="showImg">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                            <button type="button" class="btn btn-primary" onclick="createplayer()">添加漫画</button>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                    <table class="table table-striped detail-table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>封面</th>
+                                    <th>漫画名</th>
+                                    <th>章节名</th>
+                                    <th>章节路径</th>
+                                    <th>章节简介</th>
+                                    <th>更新时间</th>
+                                    <th>章节预览</th>
+                                    <td>操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <th> <img src="images/comics/480687201872.jpg" alt="" id="userPhoto" class="comicPhoto"></th>
+                                    <th>漫画名</th>
+                                    <th>章节名</th>
+                                    <th>章节路径</th>
+                                    <th>章节简介</th>
+                                    <th>更新时间</th>
+                                    <th>章节预览</th>
+                                    <td>
+                                        <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#detailEditDialog" onclick="editplayer(1)">修改</a>
+                                        <a href="#" class="btn btn-danger btn-xs" onclick="deleteplayer()">删除</a>
+                                   </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <th>封面</th>
+                                    <th>漫画名</th>
+                                    <th>章节名</th>
+                                    <th>章节路径</th>
+                                    <th>章节简介</th>
+                                    <th>更新时间</th>
+                                    <th>章节预览</th>
+                                    <td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#detailEditDialog" onclick="editplayer(1)">修改</a>
+                                        <a href="#" class="btn btn-danger btn-xs" onclick="deleteplayer()">删除</a></td>
+                                </tr>
+                            </tbody>
+                    </table>
+                    <div class="col-md-12 pagination-center center">
+                            <nav>
+                                <ul class="pagination">
+                                    <li ><a href="#">首页 </a></li>
+                                    <li ><a href="#">上一页 </a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li ><a href="#">下一页</a></li>
+                                    <li ><a href="#">尾页</a></li>
+                                </ul>
+                            </nav>
+                    </div>
+                    <div class="modal fade" id="detailEditDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel">修改章节信息</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="form-horizontal" id="edit_detail_form">
+                                                <input type="text" name="detailId" value="id">
+                                                <div class="form-group">
+                                                    <label for="edit_detail_comicname" class="col-sm-2 control-label">漫画名</label>
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control" id="edit_detail_comicname" value="漫画名" name="comicName">
+                                                    </div>
+                                                    <label for="edit_detail_chaptername" class="col-sm-2 control-label">章节名</label>
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control" id="edit_detail_chaptername" value="章节名" name="chaptername">
+                                                    </div>
+                                                </div>  
+                                                <div class="form-group">
+                                                    <label for="edit_detail_updateTime" class="col-sm-2 control-label">更新时间</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="date"  class="form-control" id="edit_detail_updateTime"  name="updateTime">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="generalize" class="col-sm-2 control-label">章节概况</label>
+                                                    <div class="col-sm-10">
+                                                        <textarea name="introduction" id="generalize" class="form-control" cols="55" value="章节概况" rows="10"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="edit_photo_path" class="col-sm-2 control-label">漫画图片</label>
+                                                        <div class="col-sm-4">
+                                                            <input type="file" multiple="multiple" name="pictures" class="comic-icon newInputPath" id="edit_photo_path">
+                                                        </div>
+                                                        <label for="new_photo_path" class="col-sm-2 control-label">存放路径</label>
+                                                        <div class="col-sm-4">
+                                                            <input type="text"  name="path" class="form-control " id="new_photo_path">
+                                                        </div>
+                                                </div>
+                                                <h3 class="center">预览</h3>
+                                                <div class="form-group center" id="showImg">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                            <button type="button" class="btn btn-primary" onclick="createplayer()">添加漫画</button>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+            </div>
             <div role="tabpanel" class="tab-pane  admin-content-item" id="comment">评论管理</div>
             <div role="tabpanel" class="tab-pane  admin-content-item" id="history">历史管理</div>
         </div>
